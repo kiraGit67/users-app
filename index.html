@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users App with Vue.js</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <h1>{{ h1text }}</h1>
         <form>
             <div class="input-wrapper">
-                <label for="user-selection">Select A User</label><br />
+                <label for="user-selection">Select A User</label>
                 <select name="user-selection" id="user-selection">
                     <option value="">Select User</option>
                     <option v-for="user of users" :key="user.id" :value="user.id">{{ user.id }} - {{ user.name }}
@@ -21,27 +22,34 @@
                 </select>
             </div>
             <div class="input-wrapper">
-                <label for="user-full-name">Full Name</label><br />
+                <label for="user-full-name">Full Name</label>
                 <input type="text" name="user-full-name" id="user-full-name" v-model="newFullName" />
             </div>
             <div class="input-wrapper">
-                <label for="user-name">User Name</label><br />
+                <label for="user-name">User Name</label>
                 <input type="text" name="user-name" id="user-name" v-model="newUserName" />
             </div>
             <div class="input-wrapper">
-                <label for="user-email">User E-Mail</label><br />
+                <label for="user-email">User E-Mail</label>
                 <input type="text" name="user-email" id="user-email" v-model="newUserEmail" />
             </div>
             <div class="input-wrapper">
-                <label for="user-phone">User Phone</label><br />
+                <label for="user-phone">User Phone</label>
                 <input type="text" name="user-phone" id="user-phone" v-model="newUserPhone" />
             </div>
             <div class="input-wrapper">
-                <label for="user-website">User Website</label><br />
+                <label for="user-website">User Website</label>
                 <input type="text" name="user-website" id="user-website" v-model="newUserWebsite" />
             </div>
             <button type="submit">Save</button>
         </form>
+
+        <div class="input-container">
+            <p><span>Name</span> <strong>{{ newFullName }}</strong></p>
+            <p><span>User Name</span> <strong>{{ newUserName }}</strong></p>
+            <p><span>User Email</span> <strong>{{ newUserEmail }}</strong></p>
+        </div>
+
         <div class="cards-container">
             <div class="card" v-for="user of users" :key="user.id">
                 <h2>{{ user.name }}</h2>
