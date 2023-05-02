@@ -1,0 +1,172 @@
+:root {
+  font-size: 16px;
+
+  --font-basic-size: 1.15rem;
+  --font-heading-size-m: 1.35rem;
+  --font-heading-size-l: 1.5rem;
+  --font-heading-size-xl: 1.75rem;
+  --font-heading-size-xxl: 2rem;
+
+  --border-color: silver;
+  --heading-color: rgb(50, 128, 25);
+  --link-color: rgb(17, 102, 0);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  padding: 3.5rem 2.5rem;
+}
+
+html {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+p,
+label {
+  font-size: var(--font-basic-size);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: normal;
+  color: var(--heading-color);
+}
+
+h1 {
+  font-size: var(--font-heading-size-xxl);
+}
+
+h2 {
+  font-size: var(--font-heading-size-xl);
+}
+
+h3 {
+  font-size: var(--font-heading-size-l);
+}
+
+strong {
+  font-size: var(--font-heading-size-m);
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--heading-color);
+}
+
+.input-wrapper {
+  display: block;
+  margin-bottom: var(--font-basic-size);
+}
+
+label {
+  color: var(--link-color);
+  margin-bottom: 1rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-basic-size);
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+form,
+.input-container {
+  margin-bottom: calc(var(--font-heading-size-l) * 2);
+}
+
+.input-container > p {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+button {
+  padding: 0.35rem 7.5rem;
+  background-color: transparent;
+  color: var(--heading-color);
+  border: 2px solid var(--heading-color);
+  border-radius: 5px;
+  font-size: var(--font-heading-size-m);
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--heading-color);
+  color: white;
+}
+
+.card {
+  padding: var(--font-heading-size-m);
+  border: 1px solid silver;
+  border-radius: var(--font-basic-size);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (min-width: 768px) {
+  #app {
+    padding-inline: 3.5rem;
+  }
+
+  form,
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--font-basic-size);
+  }
+
+  form button {
+    grid-column: span 2;
+  }
+
+  .input-wrapper {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #app {
+    padding-inline: 5rem;
+  }
+
+  form,
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  form button {
+    grid-column: span 3;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #app {
+    padding-inline: 7.5rem;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
