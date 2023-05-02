@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users App with Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ h1text }}</h1>
+        <form>
+            <div class="input-wrapper">
+                <label for="user-selection">Select A User</label><br />
+                <select name="user-selection" id="user-selection">
+                    <option value="">Select User</option>
+                    <option v-for="user of users" :key="user.id" :value="user.id">{{ user.id }} - {{ user.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="input-wrapper">
+                <label for="user-full-name">Full Name</label><br />
+                <input type="text" name="user-full-name" id="user-full-name" v-model="newFullName" />
+            </div>
+            <div class="input-wrapper">
+                <label for="user-name">User Name</label><br />
+                <input type="text" name="user-name" id="user-name" v-model="newUserName" />
+            </div>
+            <div class="input-wrapper">
+                <label for="user-email">User E-Mail</label><br />
+                <input type="text" name="user-email" id="user-email" v-model="newUserEmail" />
+            </div>
+            <div class="input-wrapper">
+                <label for="user-phone">User Phone</label><br />
+                <input type="text" name="user-phone" id="user-phone" v-model="newUserPhone" />
+            </div>
+            <div class="input-wrapper">
+                <label for="user-website">User Website</label><br />
+                <input type="text" name="user-website" id="user-website" v-model="newUserWebsite" />
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <div class="cards-container">
+            <div class="card" v-for="user of users" :key="user.id">
+                <h2>{{ user.name }}</h2>
+                <h3>{{ user.username }}</h3>
+                <p class="contact-data">
+                    E-Mail: <a :href="'mailto:' + user.email">{{ user.email }}</a><br />
+                    Phone: {{ user.phone }}<br />
+                    Website: <a :href="user.website">{{ user.website }}</a>
+                </p>
+                <p class="address-data">
+                    {{ user.address.street }}, {{ user.address.suite}}<br />
+                    {{ user.address.zipcode}} {{ user.address.city }}
+                </p>
+                <p class="company-data">
+                    <strong>{{ user.company.name }}</strong><br />
+                    <cite>{{ user.company.catchPhrase }}</cite><br />
+                    {{ user.company.bs }}
+                </p>
+            </div>
+        </div>
+        <!--
+        <pre>{{ $data }}</pre>
+        -->
+    </div>
+    <script src="vue.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
