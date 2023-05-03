@@ -50,8 +50,16 @@
             <p><span>User Email</span> <strong>{{ newUserEmail }}</strong></p>
         </div>
 
+        <div class="input-container">
+            <div class="input-wrapper">
+                <label for="">Search by Name</label>
+                <input type="text" v-model="currentSearch" />
+                <p>{{ filteredList.length }} Users shown</p>
+            </div>
+        </div>
+
         <div class="cards-container">
-            <div class="card" v-for="user of users" :key="user.id">
+            <div class="card" v-for="user of filteredList" :key="user.id">
                 <h2>{{ user.name }}</h2>
                 <h3>{{ user.username }}</h3>
                 <p class="contact-data">
