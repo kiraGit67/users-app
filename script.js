@@ -9,11 +9,24 @@ Vue.createApp({
       newUserEmail: "",
       newUserPhone: "",
       newUserWebsite: "",
+      currentSearch: "",
       users: [],
     };
   },
   created() {
     this.getUserData();
+  },
+  computed: {
+    filteredList() {
+      return this.users.filter(
+        (user) =>
+          user.name.includes(this.currentSearch) ||
+          user.address.city.includes(this.currentSearch) ||
+          user.email.includes(this.currentSearch) ||
+          user.website.includes(this.currentSearch) ||
+          user.company.name.includes(this.currentSearch)
+      );
+    },
   },
   methods: {
     async getUserData() {
